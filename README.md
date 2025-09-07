@@ -1,4 +1,7 @@
-Track 3 - Fix the Docs
+## Track 3 - Fix the Docs
+- **Pitch Deck Canva Link**: https://www.canva.com/design/DAGyTY8qaGA/91n2DiQFfsB3P0I7e6x7Kw/edit?utm_content=DAGyTY8qaGA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+- **Pitch Deck PDF Link**: https://drive.google.com/file/d/1_FXME9CFOdptjQLOztdb3RrQnM3wyap8/view?usp=sharing
+- **Video Pitch Link**: https://youtu.be/hkJ5RFQHfT0?si=4HcS7IUPwWfRClKw
 
 Docs’ Doc — Smarter Docs for GitHub Repos
 =========================================
