@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Docs’ Doc — Prototype
+=====================
 
-## Getting Started
+Smarter, faster, maintainable documentation. Demo-only: stateless, no login, no DB.
 
-First, run the development server:
+Tech
+- Next.js App Router + TypeScript
+- Tailwind CSS
+- API Routes for backend
+- GitHub REST API (public repos)
+- Gemini API (@google/generative-ai)
 
-```bash
+Setup
+1) Install deps:
+```
+npm install
+```
+2) Create `.env.local`:
+```
+GEMINI_API_KEY=your_key_here
+GITHUB_TOKEN=optional_pat_for_higher_rate_limits
+```
+3) Run dev server:
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Usage
+1) Open http://localhost:3000
+2) Paste a public GitHub repo URL and click “Analyse Repo”
+3) Explore tabs: Docs & TL;DR, Auto-generated Docs, Maintenance, Translation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Notes
+- For demo simplicity, only a handful of files/commits are fetched.
+- If GEMINI_API_KEY is not set, routes return placeholder messages instead of failing.
