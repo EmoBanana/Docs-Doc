@@ -10,8 +10,9 @@ export async function fetchRepoBasics(repoUrl: string, token?: string) {
   const headers: Record<string, string> = {
     Accept: "application/vnd.github+json",
   };
-  if (token) headers.Authorization = `Bearer ${token}`;
+  if (token) headers.Authorization = `token ${token}`;
   headers["X-GitHub-Api-Version"] = "2022-11-28";
+  headers["User-Agent"] = "docsdoc-app";
 
   // fetch default branch
   const repoResp = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {

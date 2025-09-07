@@ -22,7 +22,24 @@ export async function geminiGenerateDocs(context: any) {
   const client = getClient();
   if (!client) return "[Gemini API key not set]";
   const model = client.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
-  const prompt = `You are Docs' Doc. Generate starter documentation for this repo based on README, code files and commits. Keep it short and actionable.\n\nContext (JSON):\n${JSON.stringify(context).slice(0, 15000)}`;
+  const withEmojis = Boolean(context?.emoji);
+  const style = withEmojis
+    ? "Use friendly tone and tasteful emojis where appropriate (e.g., ✅, 📖, 🚀)."
+    : "Use a concise, professional tone. Do not include emojis.";
+  const hasReadme = Boolean(context?.readmeText && String(context.readmeText).trim().length > 0);
+  const modeInstruction = hasReadme
+    ? `The repository ALREADY has a README. Produce an UPDATED README with improvements APPLIED DIRECTLY inline (no markers).
+AFTER the full updated README, append a new section:
+\n## Updates Added\n
+List each applied change as concise bullets referencing the updated sections.
+Return a single Markdown document that first contains the full updated README, then the Updates Added section. ${style}`
+    : `The repository has NO README. Generate a comprehensive starter README based on code + commits.
+Return well-structured Markdown that a maintainer can paste directly. Do NOT add any extra preface/header; start directly with the README content (no "Auto-generated Docs" banner). ${style}`;
+
+  const prompt = `You are Docs' Doc.
+${modeInstruction}
+
+Context (JSON):\n${JSON.stringify(context).slice(0, 15000)}`;
   const res = await model.generateContent(prompt);
   return res.response.text();
 }

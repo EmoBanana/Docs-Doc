@@ -9,7 +9,6 @@ export default function Home() {
           <p className="mt-2 text-sm opacity-80">Make documentation smarter, faster, and maintainable.</p>
         </header>
         <RepoInput />
-        <p className="mt-8 text-xs opacity-70">Demo only. No login, no data stored.</p>
       </div>
     </main>
   );

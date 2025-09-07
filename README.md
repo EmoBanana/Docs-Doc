@@ -1,7 +1,7 @@
 Docs’ Doc — Prototype
 =====================
 
-Smarter, faster, maintainable documentation. Demo-only: stateless, no login, no DB.
+Smarter, faster, maintainable documentation.
 
 Tech
 - Next.js App Router + TypeScript
@@ -31,5 +31,5 @@ Usage
 3) Explore tabs: Docs & TL;DR, Auto-generated Docs, Maintenance, Translation
 
 Notes
-- For demo simplicity, only a handful of files/commits are fetched.
+- Only a handful of files/commits are fetched for responsiveness.
 - If GEMINI_API_KEY is not set, routes return placeholder messages instead of failing.
